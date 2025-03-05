@@ -4,6 +4,7 @@ import extractDocIntelligence from "./lib/extract.docIntelligence.js";
 
 export default async (req, res) => {
   try {
+    if (!req.file) throw new Error("file missing!");
     const { mimetype } = req.file;
     let jsonData = {};
 
@@ -13,7 +14,7 @@ export default async (req, res) => {
 
     return res.json({ data: jsonData });
   } catch (error) {
-    console.log(error);
-    throw error;
+    res.statusCode = 400;
+    return res.json({ message: error.message });
   }
 };

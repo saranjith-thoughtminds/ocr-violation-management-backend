@@ -7,7 +7,7 @@ export default async (req, res) => {
 
     return res.json({ data: { totalViolationCount, activeViolationCount } });
   } catch (error) {
-    console.log(error);
-    throw error;
+    res.statusCode = 400;
+    return res.json({ message: error.message });
   }
 };

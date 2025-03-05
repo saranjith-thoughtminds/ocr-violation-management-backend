@@ -1,8 +1,8 @@
-import getDatabase from "../../database/cosmos.connection.js";
-import createFileDetails from "./lib/file.create.js";
-import findFileDetails from "./lib/file.findOne.js";
-import createToll from "./lib/toll.create.js";
-import findTollDetails from "./lib/toll.findOne.js";
+import getDatabase from "../../../database/cosmos.connection.js";
+import createFileDetails from "./file.create.js";
+import findFileDetails from "./file.findOne.js";
+import createToll from "./toll.create.js";
+import findTollDetails from "./toll.findOne.js";
 
 export default async (jsonData, fileUrl, mimeType) => {
   try {
