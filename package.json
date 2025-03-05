@@ -1,0 +1,41 @@
+{
+  "name": "orc-violation-management",
+  "version": "1.0.0",
+  "description": "ocr ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "migration:run": "npx sequelize-cli db:migrate",
+    "migration:revert": "npx sequelize-cli db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saranvlmna/orc-violation-management.git"
+  },
+  "keywords": [
+    "ocr"
+  ],
+  "author": "saranjith p",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saranvlmna/orc-violation-management/issues"
+  },
+  "homepage": "https://github.com/saranvlmna/orc-violation-management#readme",
+  "dependencies": {
+    "@azure/ai-form-recognizer": "^5.0.0",
+    "@azure/cognitiveservices-computervision": "^8.2.0",
+    "@azure/cosmos": "^4.2.0",
+    "@azure/identity": "^4.7.0",
+    "@azure/storage-blob": "^12.26.0",
+    "@pinecone-database/pinecone": "^5.0.2",
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
+    "uuid": "^11.1.0"
+  }
+}
