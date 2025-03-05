@@ -1,5 +1,5 @@
 import { Router } from "express";
-import dashboard from "./lib/dashboard.js";
+import dashboard from "./dashboard.js";
 const violationRouter = Router();
 
 violationRouter.get("/dashboard", dashboard);
