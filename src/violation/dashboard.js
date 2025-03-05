@@ -1,13 +1,14 @@
+import Responder from "../shared/responder.js";
 import findViolationCount from "./lib/violation.find.count.js";
 
 export default async (req, res) => {
+  const responder = new Responder(res);
   try {
     const totalViolationCount = await findViolationCount();
     const activeViolationCount = await findViolationCount({ isActive: true });
 
-    return res.json({ data: { totalViolationCount, activeViolationCount } });
+    return responder.sucess("Fetched successfully", { totalViolationCount, activeViolationCount });
   } catch (error) {
-    res.statusCode = 400;
-    return res.json({ message: error.message });
+    return responder.sucess("Error", error.message);
   }
 };

@@ -17,6 +17,7 @@ export default async (blobUrl) => {
     const data = result.fields;
     return data;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error(error);
+    throw error;
   }
 };
