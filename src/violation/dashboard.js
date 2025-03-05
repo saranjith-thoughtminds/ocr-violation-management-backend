@@ -1,4 +1,4 @@
-import findViolationCount from "./lib/violation.find.count.js";
+import findViolationCount from "./violation.find.count.js";
 
 export default async (req, res) => {
   try {

@@ -9,25 +9,16 @@ export default async (jsonData, fileUrl, mimeType) => {
     const { authority_name, invoice_number } = jsonData;
 
     let isTollExist = await findTollDetails(authority_name);
-    if (!isTollExist)
-      isTollExist = await createToll({ tollName: authority_name });
+    if (!isTollExist) isTollExist = await createToll({ tollName: authority_name });
     jsonData["fileUrl"] = fileUrl;
     jsonData["fileDetailsId"] = isTollExist.insertedId || isTollExist._id;
     jsonData["createdAt"] = new Date();
     jsonData["updatedAt"] = new Date();
 
-    let isFileExist = await findFileDetails(
-      isTollExist.insertedId || isTollExist._id,
-      invoice_number
-    );
+    let isFileExist = await findFileDetails(isTollExist.insertedId || isTollExist._id, invoice_number);
     if (isFileExist) return jsonData;
 
-    isFileExist = await createFileDetails(
-      isTollExist.insertedId || isTollExist._id,
-      invoice_number,
-      fileUrl,
-      mimeType
-    );
+    isFileExist = await createFileDetails(isTollExist.insertedId || isTollExist._id, invoice_number, fileUrl, mimeType);
 
     if (isTollExist && isFileExist) {
       const database = await getDatabase();

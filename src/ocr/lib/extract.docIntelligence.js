@@ -5,7 +5,6 @@ const apiKey = process.env.AZURE_DOCINTELLIGENCE_KEY;
 
 export default async (blobUrl) => {
   try {
-
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
 
     const model = "prebuilt-invoice";
