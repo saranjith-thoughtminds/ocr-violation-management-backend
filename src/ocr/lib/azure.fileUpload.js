@@ -6,11 +6,9 @@ const AZURE_BLOB_CONTAINER_NAME = process.env.AZURE_BLOB_CONTAINER_NAME;
 
 export default async (file) => {
   try {
-    const { buffer, originalname, mimetype } = file;
+    const { buffer, mimetype } = file;
     const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_BLOB_CONNECTION_STRING);
     const containerClient = blobServiceClient.getContainerClient(AZURE_BLOB_CONTAINER_NAME);
-
-    await containerClient.createIfNotExists({ access: "container" });
 
     const blobName = `${uuidv4()}`;
 
