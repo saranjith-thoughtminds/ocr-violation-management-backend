@@ -6,7 +6,7 @@ import violationRouter from "./src/violation/router.js";
 
 const app = express();
 const port = process.env.APP_PORT;
-await cosmosConnection();
+// await cosmosConnection();
 
 app.use(json());
 
